@@ -1,5 +1,5 @@
 name: "pkl"
-version: "0.1.0"
+version: "0.1.1"
 usage: "specify and validate values using pkl" 
 description: "Wrapper around helm to use pkl instead of yaml for values"
 ignoreFlags: false
