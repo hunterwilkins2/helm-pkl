@@ -32,6 +32,8 @@ esac
 while [ $# -gt 0 ]; do
   case "$1" in
     --pkl-template) pkl_file="$2"; shift; shift;;
+    --property=*) pkl_args+="$1 "; shift;;
+    --property|-p) pkl_args+="$1 $2"; shift; shift;;
     --values-file) values_file="$2"; shift; shift;;
     --help|-h) usage_command "$helm_command";;
     *) helm_args+="$1 "; shift;;
@@ -74,7 +76,8 @@ fi
 pkl eval \
   --format=yaml \
   --output-path="$values_file" \
-  "$pkl_file" || exit 1
+  "$pkl_file" \
+  $pkl_args || exit 1
 
 helm "$helm_command" \
   $helm_args \
