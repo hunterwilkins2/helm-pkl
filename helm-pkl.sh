@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function usage_missing_command() {
+usage_missing_command() {
   printf 'Usage:\n'
   printf '  helm pkl [command] [--pkl-template TEMPLATE] [flags]\n\n'
   printf 'Available commands:\n'
@@ -14,7 +14,7 @@ function usage_missing_command() {
   exit 1
 }
 
-function usage_command() {
+usage_command() {
   printf 'Usage:\n'
   printf '  helm pkl %s [--pkl-template TEMPLATE] [NAME] [CHART] [flags]\n\n' "$1"
   helm "$1" --help | 
