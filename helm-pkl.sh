@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 usage_missing_command() {
   printf 'Usage:\n'
@@ -33,7 +33,7 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --pkl-template) pkl_file="$2"; shift; shift;;
     --property=*) pkl_args+="$1 "; shift;;
-    --property|-p) pkl_args+="$1 $2"; shift; shift;;
+    --property|-p) pkl_args+="$1 $2 "; shift; shift;;
     --values-file) values_file="$2"; shift; shift;;
     --help|-h) usage_command "$helm_command";;
     *) helm_args+="$1 "; shift;;
